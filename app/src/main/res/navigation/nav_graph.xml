@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/noteFragment">
+
+    <fragment
+        android:id="@+id/onBoardPagingFragment"
+        android:name="com.example.noteapp.ui.fragment.on_board.OnBoardPagingFragment"
+        android:label="fragment_on_board_paging"
+        tools:layout="@layout/fragment_on_board_paging" >
+        <action
+            android:id="@+id/action_onBoardPagingFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.example.noteapp.ui.fragment.on_board.OnBoardFragment"
+        android:label="OnBoardFragment" />
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.noteapp.ui.fragment.note.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note">
+        <action
+            android:id="@+id/action_noteFragment_to_noteDeatailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:destination="@id/noteDeatailFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/noteDeatailFragment"
+        android:name="com.example.noteapp.ui.fragment.note.NoteDeatailFragment"
+        android:label="fragment_note_deatail"
+        tools:layout="@layout/fragment_note_deatail" />
+</navigation>
