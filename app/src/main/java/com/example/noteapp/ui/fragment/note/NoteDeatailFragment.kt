@@ -23,16 +23,18 @@ class NoteDeatailFragment : Fragment() {
         binding = FragmentNoteDeatailBinding.inflate(inflater, container, false)
         return binding.root
     }
-override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-    setupListener()
-}
-    private fun setupListener() = with(binding) {
-        btnAdd.setOnClickListener{
-            val etTitle:String = etTitle.text.toString()
-            val etDescription:String = etDescription.text.toString()
-            App.appDatabase?.noteDao()?.insert(NoteModel(etTitle, etDescription))
-            findNavController().navigateUp()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupListener()
     }
-  }
+
+    private fun setupListener() = with(binding) {
+//        btnAdd.setOnClickListener {
+//            val etTitle: String = etTitle.text.toString()
+//            val etDescription: String = etDescription.text.toString()
+//            App.appDatabase?.noteDao()?.insert(NoteModel(etTitle, etDescription))
+//            findNavController().navigateUp()
+//        }
+    }
 }

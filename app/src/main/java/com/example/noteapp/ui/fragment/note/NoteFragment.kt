@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.Lottie.initialize
 import com.example.noteapp.App
@@ -21,7 +22,7 @@ class NoteFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteBinding
     private val noteAdapter = NoteAdapter()
-
+    private var flag = true
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,8 +48,19 @@ class NoteFragment : Fragment() {
 
     private fun initialize() {
         binding.rvNotes.apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            //layoutManager = LinearLayoutManager(requireContext())
             adapter = noteAdapter
+        }
+        binding.imgGridLayout.setOnClickListener {
+            if (flag) {
+                binding.imgGridLayout.setImageResource(R.drawable.ic_grid_layout)
+                binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                flag = false
+            } else {
+                binding.imgGridLayout.setImageResource(R.drawable.ic_linear_layout)
+                binding.rvNotes.layoutManager = LinearLayoutManager(requireContext())
+                flag = true
+            }
         }
     }
 
